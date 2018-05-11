@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Login layout and Register layout -->
+    <dimen name="txt_padding_top_bottom">8dp</dimen>
+    <dimen name="txt_padding_left_right">10dp</dimen>
+    <dimen name="login_margin_top">20dp</dimen>
+    <dimen name="txt_margin_left_right">20dp</dimen>
+    <dimen name="txt_margin_top">20dp</dimen>
+</resources>

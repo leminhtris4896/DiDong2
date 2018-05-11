@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_home"
+    tools:context="com.example.trile.egame.RegisterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/img_register"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:orientation="vertical"
+            android:gravity="center|top">
+
+            <EditText
+                android:id="@+id/edt_mail_register"
+                android:hint="@string/hint_mail"
+                android:drawableLeft="@drawable/mail"
+                style="@style/edt_custom"/>
+
+            <EditText
+                android:id="@+id/edt_pass_register"
+                android:hint="@string/hint_pass"
+                android:drawableLeft="@drawable/pass"
+                android:inputType="textPassword"
+                style="@style/edt_custom"/>
+
+            <EditText
+                android:id="@+id/edt_name_register"
+                android:hint="@string/hint_name"
+                android:drawableLeft="@drawable/name"
+                style="@style/edt_custom"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:gravity="center">
+
+
+                <ImageView
+                    style="@style/img_users"
+                    android:src="@drawable/img1"/>
+
+                <ImageView
+                    style="@style/img_users"
+                    android:src="@drawable/img2"/>
+
+                <ImageView
+                    style="@style/img_users"
+                    android:src="@drawable/img3"/>
+
+                <ImageView
+                    style="@style/img_users"
+                    android:src="@drawable/img4"/>
+
+                <ImageView
+                    style="@style/img_users"
+                    android:src="@drawable/img5"/>
+
+                <ImageView
+                    style="@style/img_users"
+                    android:src="@drawable/img6"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:gravity="center">
+
+                <RadioGroup
+                    android:id="@+id/group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/img1"
+                        android:button="@drawable/custom_check"
+                        android:layout_marginLeft="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <RadioButton
+                        android:id="@+id/img2"
+                        style="@style/rdb_choosen_img"/>
+                    <RadioButton
+                        android:id="@+id/img3"
+                        style="@style/rdb_choosen_img" />
+                    <RadioButton
+                        android:id="@+id/img4"
+                        style="@style/rdb_choosen_img" />
+                    <RadioButton
+                        android:id="@+id/img5"
+                        style="@style/rdb_choosen_img"/>
+                    <RadioButton
+                        android:id="@+id/img6"
+                        style="@style/rdb_choosen_img"/>
+
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@android:color/white"
+                android:text="@string/btn_register"
+                android:gravity="center"
+                android:background="@drawable/btn"/>
+
+            <TextView
+                android:id="@+id/tvCLOSEREGISTER"
+                style="@style/text_login"
+                android:text="@string/close_register"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

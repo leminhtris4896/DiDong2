@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">E5Game</string>
+
+
+    <string name="btn_login">Đăng nhập</string>
+    <string name="btn_register">Đăng kí</string>
+    <string name="hint_mail">Địa chỉ email</string>
+    <string name="hint_pass">Mật khẩu</string>
+    <string name="hint_name">Tên nhân vật</string>
+    <string name="hint_input_img">Nhập số nhân </string>
+    <string name="text_register">Đăng kí tài khoản</string>
+    <string name="close_register">Hủy bỏ đăng kí</string>
+
+
+    <string name="theme_animal">Động vật</string>
+    <string name="theme_live">Gia đình</string>
+    <string name="theme_learch">Học tập</string>
+    <string name="theme_item">Đồ vật</string>
+    <string name="theme_flag">Tên nước</string>
+    <string name="theme_car">Xe cộ</string>
+
+
+    <string name="lv1">Level 1 : 10 Từ</string>
+    <string name="lv2">Level 2 : 20 Từ</string>
+    <string name="lv3">Level 3 : 30 Từ</string>
+    <string name="lv4">Level 4 : 40 Từ</string>
+    <string name="lv5">Level 5 : 50 Từ</string>
+    <string name="lv6">Level 6 : 60 Từ</string>
+</resources>

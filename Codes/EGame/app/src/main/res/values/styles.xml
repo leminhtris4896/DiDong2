@@ -1,0 +1,146 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- HOME -->
+    <style name="btn_function">
+        <!-- Customize your theme here. -->
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">50dp</item>
+        <item name="android:layout_marginRight">50dp</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:paddingLeft">18dp</item>
+        <item name="android:drawablePadding">30dp</item>
+        <item name="android:gravity">left|center</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="edt_custom">
+        <!-- Customize your theme here. -->
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/custom_edt</item>
+        <item name="android:paddingTop">@dimen/txt_padding_top_bottom</item>
+        <item name="android:paddingBottom">@dimen/txt_padding_top_bottom</item>
+        <item name="android:paddingLeft">@dimen/txt_padding_left_right</item>
+        <item name="android:paddingRight">@dimen/txt_padding_left_right</item>
+        <item name="android:layout_marginTop">@dimen/txt_margin_top</item>
+        <item name="android:textColor">@color/bg_home</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:gravity">center|left</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_marginLeft">@dimen/txt_margin_left_right</item>
+        <item name="android:layout_marginRight">@dimen/txt_margin_left_right</item>
+    </style>
+
+    <style name="text_login">
+        <!-- Customize your theme here. -->
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:layout_marginTop">20dp</item>
+    </style>
+
+
+    <style name="theme_text">
+        <!-- Customize your theme here. -->
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="theme_border_1">
+        <!-- Customize your theme here. -->
+        <item name="android:layout_width">123dp</item>
+        <item name="android:layout_height">123dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@drawable/custom_view_list</item>
+    </style>
+
+    <style name="theme_border_2">
+        <!-- Customize your theme here. -->
+        <item name="android:layout_width">130dp</item>
+        <item name="android:layout_height">130dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@drawable/custom_view_in_list</item>
+    </style>
+
+    <style name="theme_main">
+        <!-- Customize your theme here. -->
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+
+    <style name="text_level">
+        <!-- Customize your theme here. -->
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">22dp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+    </style>
+
+    <style name="theme_border_level_1">
+        <!-- Customize your theme here. -->
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">65dp</item>
+        <item name="android:layout_marginLeft">3dp</item>
+        <item name="android:layout_marginRight">3dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center|left</item>
+        <item name="android:background">@drawable/custom_view_list</item>
+    </style>
+
+    <style name="theme_border_level_2">
+        <!-- Customize your theme here. -->
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">70dp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:gravity">center|left</item>
+        <item name="android:background">@drawable/custom_view_in_list</item>
+    </style>
+
+
+    <style name="checkbox">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:button">@drawable/custom_check</item>
+    </style>
+
+    <style name="img_users">
+        <item name="android:layout_width">45dp</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:layout_marginLeft">6dp</item>
+    </style>
+
+    <style name="rdb_choosen_img">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">35dp</item>
+        <item name="android:button">@drawable/custom_check</item>
+    </style>
+
+</resources>

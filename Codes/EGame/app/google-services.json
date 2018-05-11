@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "403128756553",
+    "firebase_url": "https://appchatver.firebaseio.com",
+    "project_id": "appchatver",
+    "storage_bucket": "appchatver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:403128756553:android:d9390c31f7b60091",
+        "android_client_info": {
+          "package_name": "com.example.trile.egame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "403128756553-cs8hd5gd0sbpk5n6hj3os9rl1cuqtn2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPjqs4ImpH-KOQv63O2lFEm9rWvfxLsfQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
