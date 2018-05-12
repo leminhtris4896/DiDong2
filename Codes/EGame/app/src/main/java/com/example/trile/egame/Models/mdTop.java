@@ -5,25 +5,27 @@ package com.example.trile.egame.Models;
  */
 
 public class mdTop {
-    private int imgUser;
+    private String imgUser;
     private String nameUser;
     private String coreUser;
 
-    public mdTop(int imgUser, String nameUser, String coreUser) {
-        this.imgUser = imgUser;
-        this.nameUser = nameUser;
-        this.coreUser = coreUser;
-    }
+
 
     public mdTop() {
         //
     }
 
-    public int getImgUser() {
+    public mdTop(String imgUser, String nameUser, String coreUser) {
+        this.imgUser = imgUser;
+        this.nameUser = nameUser;
+        this.coreUser = coreUser;
+    }
+
+    public String getImgUser() {
         return imgUser;
     }
 
-    public void setImgUser(int imgUser) {
+    public void setImgUser(String imgUser) {
         this.imgUser = imgUser;
     }
 

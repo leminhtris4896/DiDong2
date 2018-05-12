@@ -10,20 +10,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MenuHome.HomeActivity" />
-        <activity android:name=".MenuHome.TopActivity" />
-        <activity android:name=".RegisterLogin.LoginActivity"></activity>
-        <activity android:name=".MenuHome.ThemeActivity" />
-        <activity android:name=".LevelPlayActivity" />
-        <activity android:name=".PlayMenuActivity" />
-        <activity android:name=".MenuHome.PLAY" />
-        <activity android:name=".Theme.Theme1">
+        <activity android:name=".MenuHome.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MenuHome.TopActivity" />
+        <activity android:name=".RegisterLogin.LoginActivity"></activity>
+        <activity android:name=".MenuHome.Practice_Vocabulary_Activity">
+
+        </activity>
+        <activity android:name=".LevelPlayActivity" />
+        <activity android:name=".PlayMenuActivity" />
+        <activity android:name=".MenuHome.PLAY" />
+        <activity android:name=".Theme.Theme_Animal"></activity>
         <activity android:name=".Theme.Theme2" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".Theme.Theme3"></activity>

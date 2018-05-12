@@ -12,17 +12,30 @@ public class mdLearn {
     private String viet;
     private String cau;
 
-    public mdLearn(String img, String mp3, String eng, String write, String viet, String cau) {
+    private String type;
+
+
+
+    public mdLearn() {
+        //
+    }
+
+    public mdLearn(String img, String mp3, String eng, String write, String viet, String cau, String type) {
         this.img = img;
         this.mp3 = mp3;
         this.eng = eng;
         this.write = write;
         this.viet = viet;
         this.cau = cau;
+        this.type = type;
     }
 
-    public mdLearn() {
-        //
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getImg() {

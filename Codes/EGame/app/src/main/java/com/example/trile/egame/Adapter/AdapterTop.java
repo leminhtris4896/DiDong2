@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.trile.egame.Models.mdTop;
 import com.example.trile.egame.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -36,7 +37,7 @@ public class AdapterTop extends RecyclerView.Adapter<AdapterTop.ViewHolder> {
 
     @Override
     public void onBindViewHolder(AdapterTop.ViewHolder holder, int position) {
-        holder.imgUser.setImageResource(arrTop.get(position).getImgUser());
+        Picasso.with(context).load(arrTop.get(position).getImgUser()).into(holder.imgUser);
         holder.tvNameUser.setText(arrTop.get(position).getNameUser());
         holder.tvCoreUser.setText(arrTop.get(position).getCoreUser());
     }

@@ -37,7 +37,7 @@ public class HomeActivity extends AppCompatActivity {
         btnTRAINGAME.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentTheme = new Intent(HomeActivity.this,ThemeActivity.class);
+                Intent intentTheme = new Intent(HomeActivity.this,Practice_Vocabulary_Activity.class);
                 startActivity(intentTheme);
             }
         });

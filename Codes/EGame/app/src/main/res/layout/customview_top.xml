@@ -57,10 +57,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
+                    android:text="Điểm"
                     android:textColor="@android:color/black"
                     android:textSize="17dp"
-                    android:text="Điểm"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvCoreUser"
