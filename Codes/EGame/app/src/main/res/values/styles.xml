@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowFullscreen">true</item>
     </style>
 
     <!-- HOME -->
@@ -127,6 +128,7 @@
         <item name="android:paddingLeft">5dp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">14sp</item>
+        <item name="android:layout_marginTop">10dp</item>
         <item name="android:button">@drawable/custom_check</item>
     </style>
 

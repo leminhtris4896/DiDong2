@@ -42,7 +42,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:layout_marginLeft="10dp"
-                        android:text="Tên nước"
+                        android:text="Học tập"
                         android:textColor="@android:color/white"
                         android:textSize="18sp"
                         android:textStyle="bold" />

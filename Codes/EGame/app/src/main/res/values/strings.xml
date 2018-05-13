@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">E5Game</string>
+    <string name="app_name">5EGame</string>
 
 
     <string name="btn_login">Đăng nhập</string>
@@ -26,4 +26,10 @@
     <string name="lv4">Level 4 : 40 Từ</string>
     <string name="lv5">Level 5 : 50 Từ</string>
     <string name="lv6">Level 6 : 60 Từ</string>
+
+    <string name="WIN">THẮNG RỒI</string>
+    <string name="GAMEOVER">THUA RỒI</string>
+    <string name="PLAY_NEXT">Chơi tiếp</string>
+    <string name="NO_NEXT">Rời khỏi</string>
+    <string name="LEARN">Học từ</string>
 </resources>
