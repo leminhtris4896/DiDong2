@@ -44,6 +44,7 @@ public class PlayMenuActivity extends AppCompatActivity implements Serializable 
         mData = FirebaseDatabase.getInstance().getReference();
         init();
         // PLAY KIM
+        luuDem.dem = 0;
         imgPlayKim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,7 +58,7 @@ public class PlayMenuActivity extends AppCompatActivity implements Serializable 
                                 mdQuestion mdQuestionRanDom = questions.get(new Random().nextInt(questions.size()));
                                 if (ktTrung(arrayListQuetionRandom, mdQuestionRanDom.getAnswer()) == false) {
                                     arrayListQuetionRandom.add(mdQuestionRanDom);
-                                    Toast.makeText(PlayMenuActivity.this, mdQuestionRanDom.getAnswer(), Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(PlayMenuActivity.this, mdQuestionRanDom.getAnswer(), Toast.LENGTH_SHORT).show();
                                 }
                             }
                             Intent intentKim = new Intent(PlayMenuActivity.this, PLAY.class);
@@ -92,28 +93,180 @@ public class PlayMenuActivity extends AppCompatActivity implements Serializable 
         imgPlayMoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(PlayMenuActivity.this, "Mộc", Toast.LENGTH_SHORT).show();
+                mData.child("Question").addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                        mdQuestion mdQuestion = dataSnapshot.getValue(com.example.trile.egame.Models.mdQuestion.class);
+                        questions.add(mdQuestion);
+                        if (questions.size() == 50) {
+                            while (arrayListQuetionRandom.size() < 10) {
+                                mdQuestion mdQuestionRanDom = questions.get(new Random().nextInt(questions.size()));
+                                if (ktTrung(arrayListQuetionRandom, mdQuestionRanDom.getAnswer()) == false) {
+                                    arrayListQuetionRandom.add(mdQuestionRanDom);
+                                    //Toast.makeText(PlayMenuActivity.this, mdQuestionRanDom.getAnswer(), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                            Intent intentKim = new Intent(PlayMenuActivity.this, PLAY.class);
+                            intentKim.putParcelableArrayListExtra("random_question",  arrayListQuetionRandom);
+                            startActivity(intentKim);
+                        }
+                    }
+
+                    @Override
+                    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
             }
         });
         // PLAY THUY
         imgPlayThuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(PlayMenuActivity.this, "Thủy", Toast.LENGTH_SHORT).show();
+                mData.child("Question").addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                        mdQuestion mdQuestion = dataSnapshot.getValue(com.example.trile.egame.Models.mdQuestion.class);
+                        questions.add(mdQuestion);
+                        if (questions.size() == 50) {
+                            while (arrayListQuetionRandom.size() < 10) {
+                                mdQuestion mdQuestionRanDom = questions.get(new Random().nextInt(questions.size()));
+                                if (ktTrung(arrayListQuetionRandom, mdQuestionRanDom.getAnswer()) == false) {
+                                    arrayListQuetionRandom.add(mdQuestionRanDom);
+                                    //Toast.makeText(PlayMenuActivity.this, mdQuestionRanDom.getAnswer(), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                            Intent intentKim = new Intent(PlayMenuActivity.this, PLAY.class);
+                            intentKim.putParcelableArrayListExtra("random_question",  arrayListQuetionRandom);
+                            startActivity(intentKim);
+                        }
+                    }
+
+                    @Override
+                    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
             }
         });
         // PLAY HOA
         imgPlayHoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(PlayMenuActivity.this, "Hỏa", Toast.LENGTH_SHORT).show();
+                mData.child("Question").addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                        mdQuestion mdQuestion = dataSnapshot.getValue(com.example.trile.egame.Models.mdQuestion.class);
+                        questions.add(mdQuestion);
+                        if (questions.size() == 50) {
+                            while (arrayListQuetionRandom.size() < 10) {
+                                mdQuestion mdQuestionRanDom = questions.get(new Random().nextInt(questions.size()));
+                                if (ktTrung(arrayListQuetionRandom, mdQuestionRanDom.getAnswer()) == false) {
+                                    arrayListQuetionRandom.add(mdQuestionRanDom);
+                                    //Toast.makeText(PlayMenuActivity.this, mdQuestionRanDom.getAnswer(), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                            Intent intentKim = new Intent(PlayMenuActivity.this, PLAY.class);
+                            intentKim.putParcelableArrayListExtra("random_question",  arrayListQuetionRandom);
+                            startActivity(intentKim);
+                        }
+                    }
+
+                    @Override
+                    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
             }
         });
         // PLAY THO
         imgPlayTho.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(PlayMenuActivity.this, "Thổ", Toast.LENGTH_SHORT).show();
+                mData.child("Question").addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                        mdQuestion mdQuestion = dataSnapshot.getValue(com.example.trile.egame.Models.mdQuestion.class);
+                        questions.add(mdQuestion);
+                        if (questions.size() == 50) {
+                            while (arrayListQuetionRandom.size() < 10) {
+                                mdQuestion mdQuestionRanDom = questions.get(new Random().nextInt(questions.size()));
+                                if (ktTrung(arrayListQuetionRandom, mdQuestionRanDom.getAnswer()) == false) {
+                                    arrayListQuetionRandom.add(mdQuestionRanDom);
+                                    //Toast.makeText(PlayMenuActivity.this, mdQuestionRanDom.getAnswer(), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                            Intent intentKim = new Intent(PlayMenuActivity.this, PLAY.class);
+                            intentKim.putParcelableArrayListExtra("random_question",  arrayListQuetionRandom);
+                            startActivity(intentKim);
+                        }
+                    }
+
+                    @Override
+                    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
             }
         });
     }
@@ -129,7 +282,7 @@ public class PlayMenuActivity extends AppCompatActivity implements Serializable 
     public boolean ktTrung(ArrayList<mdQuestion> strings, String chuoi) {
         boolean kt = false;
         for (int i = 0; i < strings.size(); i++) {
-            if (strings.get(i).equals(strings.get(i).getAnswer())) {
+            if (strings.get(i).getAnswer().equalsIgnoreCase(chuoi)) {
                 kt = true;
             }
         }

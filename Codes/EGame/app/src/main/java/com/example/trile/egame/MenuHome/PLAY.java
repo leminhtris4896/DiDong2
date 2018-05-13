@@ -14,10 +14,13 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.trile.egame.Models.mdQuestion;
+import com.example.trile.egame.PlayMenuActivity;
 import com.example.trile.egame.R;
 import com.example.trile.egame.fragment_Question;
 import com.example.trile.egame.luuDem;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class PLAY extends AppCompatActivity {
@@ -62,18 +65,35 @@ public class PLAY extends AppCompatActivity {
             public void onClick(View view) {
                 dialog.dismiss();
                 starGame();
+                fragment_Question fragment_question = new fragment_Question();
+                android.support.v4.app.FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction1.replace(R.id.frame_question, fragment_question, "Fragment");
+                fragmentTransaction1.commit();
             }
         });
-
 
         btn_Accept_Select.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                luuDem.dem = luuDem.dem + 1;
-                fragment_Question fragment_question = new fragment_Question();
-                android.support.v4.app.FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction1.replace(R.id.frame_question,fragment_question, "Fragment");
-                fragmentTransaction1.commit();
+                if (luuDem.dem < 9) {
+                    luuDem.dem = luuDem.dem + 1;
+                    fragment_Question fragment_question = new fragment_Question();
+                    android.support.v4.app.FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction1.replace(R.id.frame_question, fragment_question, "Fragment");
+                    fragmentTransaction1.commit();
+                } else if (luuDem.dem >= 9) {
+                    ArrayList<mdQuestion> mdQuestions = getIntent().getParcelableArrayListExtra("random_question");
+                    for (int i = 0; i < luuDem.arrayListReply.size(); i++) {
+                       if (ktTrung(mdQuestions,luuDem.arrayListReply.get(i)) == true)
+                                luuDem.Diem = luuDem.Diem + 1;
+                    }
+                    Toast.makeText(PLAY.this,luuDem.Diem+ "",Toast.LENGTH_SHORT).show();
+                    luuDem.arrayListReply.clear();
+                    luuDem.Diem = 0;
+                    luuDem.dem = 0;
+                    Intent intent = new Intent(PLAY.this, PlayMenuActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }
@@ -107,5 +127,15 @@ public class PLAY extends AppCompatActivity {
         int seconds = (int) (TimeLeftInMillis / 1000) % 60;
         String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minustes, seconds);
         tvTime.setText(timeLeftFormatted);
+    }
+
+    public boolean ktTrung(ArrayList<mdQuestion> strings, String chuoi) {
+        boolean kt = false;
+        for (int i = 0; i < strings.size(); i++) {
+            if (strings.get(i).getAnswer().equalsIgnoreCase(chuoi)) {
+                kt = true;
+            }
+        }
+        return kt;
     }
 }

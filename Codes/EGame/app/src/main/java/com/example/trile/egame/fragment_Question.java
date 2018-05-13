@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 
@@ -23,6 +24,7 @@ public class fragment_Question extends android.support.v4.app.Fragment implement
     Bundle bundle;
     private ImageView img_question;
     private RadioButton rdbA, rdbB, rdbC, rdbD;
+    private ArrayList<String> arrayListReply;
 
     public fragment_Question() {
     }
@@ -42,20 +44,41 @@ public class fragment_Question extends android.support.v4.app.Fragment implement
 
         ArrayList<mdQuestion> mdQuestions = getActivity().getIntent().getParcelableArrayListExtra("random_question");
 
-        ArrayList<mdQuestion> mdQuestions1 = mdQuestions;
+        Picasso.with(getContext()).load(mdQuestions.get(luuDem.dem).getImgQuestion()).into(img_question);
+        rdbA.setText(mdQuestions.get(luuDem.dem).getArrayAnswer().get(0));
+        rdbB.setText(mdQuestions.get(luuDem.dem).getArrayAnswer().get(1));
+        rdbC.setText(mdQuestions.get(luuDem.dem).getArrayAnswer().get(2));
+        rdbD.setText(mdQuestions.get(luuDem.dem).getArrayAnswer().get(3));
 
+        rdbA.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                luuDem.arrayListReply.add(rdbA.getText().toString());
+            }
+        });
+        rdbB.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                luuDem.arrayListReply.add(rdbB.getText().toString());
+            }
+        });
+        rdbC.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                luuDem.arrayListReply.add(rdbC.getText().toString());
+            }
+        });
+        rdbD.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                luuDem.arrayListReply.add(rdbD.getText().toString());
+            }
+        });
 
-           //String dem = bundle.getString("dem");
-           //demint = Integer.parseInt(dem);
-           Picasso.with(getContext()).load(mdQuestions1.get(luuDem.dem).getImgQuestion()).into(img_question);
-           rdbA.setText(mdQuestions1.get(luuDem.dem).getArrayAnswer().get(0));
-           rdbB.setText(mdQuestions1.get(luuDem.dem).getArrayAnswer().get(1));
-           rdbC.setText(mdQuestions1.get(luuDem.dem).getArrayAnswer().get(2));
-           rdbD.setText(mdQuestions1.get(luuDem.dem).getArrayAnswer().get(3));
+        if ( luuDem.dem == 9)
+        {
 
-
-        //intentarray = (Intent) ;
-
+        }
         return view;
     }
 }
