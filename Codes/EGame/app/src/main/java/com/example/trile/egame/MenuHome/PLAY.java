@@ -1,6 +1,8 @@
 package com.example.trile.egame.MenuHome;
 
 import android.app.Dialog;
+import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.trile.egame.R;
+import com.example.trile.egame.fragment_Question;
+import com.example.trile.egame.luuDem;
 
 import java.util.Locale;
 
@@ -20,13 +24,14 @@ public class PLAY extends AppCompatActivity {
 
     private TextView tvTime;
     private SeekBar seekBarTime;
-    private static  final long STAR_TIME_IN_MILLIS = 600000;
+    private static final long STAR_TIME_IN_MILLIS = 600000;
     private CountDownTimer mCountDownTimer;
     private CountDownTimer mCountDownTimerSeekbar;
     private long TimeLeftInMillis = STAR_TIME_IN_MILLIS;
     private boolean mTimeRunning;
     private LinearLayout linearClose;
     private ImageView imgClose;
+    private ImageView btn_Accept_Select;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,17 +64,30 @@ public class PLAY extends AppCompatActivity {
                 starGame();
             }
         });
+
+
+        btn_Accept_Select.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                luuDem.dem = luuDem.dem + 1;
+                fragment_Question fragment_question = new fragment_Question();
+                android.support.v4.app.FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction1.replace(R.id.frame_question,fragment_question, "Fragment");
+                fragmentTransaction1.commit();
+            }
+        });
     }
 
 
     private void initView() {
         imgClose = (ImageView) findViewById(R.id.imgClose);
         tvTime = (TextView) findViewById(R.id.textTime);
+        btn_Accept_Select = (ImageView) findViewById(R.id.btn_Accept_Select);
     }
 
     private void starGame() {
         // STAR PLAY GAME
-        mCountDownTimer = new CountDownTimer(TimeLeftInMillis,500) {
+        mCountDownTimer = new CountDownTimer(TimeLeftInMillis, 500) {
             @Override
             public void onTick(long millisUltilFinish) {
                 TimeLeftInMillis = millisUltilFinish;
@@ -87,7 +105,7 @@ public class PLAY extends AppCompatActivity {
     private void updateCountTime() {
         int minustes = (int) (TimeLeftInMillis / 1000) / 60;
         int seconds = (int) (TimeLeftInMillis / 1000) % 60;
-        String timeLeftFormatted = String.format(Locale.getDefault(),"%02d:%02d",minustes,seconds);
+        String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minustes, seconds);
         tvTime.setText(timeLeftFormatted);
     }
 }

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:id="@+id/frame_questionreplay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_home"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="40dp"
+            android:src="@mipmap/classroom"
+            android:id="@+id/img_question"/>
+
+        <TextView
+            android:id="@+id/tvEng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:textColor="@android:color/white"
+            android:text="Lớp học"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <RadioButton
+                        android:id="@+id/radA"
+                        style="@style/checkbox"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginRight="40dp"
+                        android:layout_marginBottom="20dp"
+                        android:text="Table" />
+
+                    <RadioButton
+                        android:id="@+id/radB"
+                        style="@style/checkbox"
+                        android:layout_alignBaseline="@id/radA"
+                        android:layout_toRightOf="@id/radA"
+                        android:text="Banner" />
+
+                    <RadioButton
+                        android:id="@+id/radC"
+                        style="@style/checkbox"
+                        android:layout_alignLeft="@id/radA"
+                        android:layout_below="@id/radA"
+                        android:text="Teacher" />
+
+                    <RadioButton
+                        android:id="@+id/radD"
+                        style="@style/checkbox"
+                        android:layout_alignBaseline="@id/radC"
+                        android:layout_alignLeft="@id/radB"
+                        android:layout_toRightOf="@id/radC"
+                        android:text="Classroom" />
+
+                </RelativeLayout>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</FrameLayout>
