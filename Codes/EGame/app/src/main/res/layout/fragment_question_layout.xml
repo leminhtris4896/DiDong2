@@ -30,7 +30,7 @@
             android:textStyle="bold"
             android:textSize="25dp"
             android:textColor="@android:color/white"
-            android:text="Lớp học"/>
+            android:text="Hãy chọn đáp án phù hợp"/>
 
         <LinearLayout
             android:layout_width="match_parent"

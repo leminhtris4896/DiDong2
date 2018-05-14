@@ -13,6 +13,6 @@
         android:gravity="center"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        android:text="STAR"/>
+        android:text="START"/>
 
 </android.support.constraint.ConstraintLayout>

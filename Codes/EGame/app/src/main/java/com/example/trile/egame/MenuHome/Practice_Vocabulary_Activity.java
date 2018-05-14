@@ -1,15 +1,13 @@
 package com.example.trile.egame.MenuHome;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.trile.egame.Models.mdLearn;
-import com.example.trile.egame.Models.mdQuestion;
-import com.example.trile.egame.Models.mdTop;
 import com.example.trile.egame.R;
 import com.example.trile.egame.Theme.Theme_Animal;
 import com.google.firebase.database.DatabaseReference;
@@ -20,6 +18,7 @@ import java.util.ArrayList;
 public class Practice_Vocabulary_Activity extends AppCompatActivity {
 
     private ImageView imgCLOSETHEME;
+    private ImageView closeTheme;
     private LinearLayout btn_Animal;
     private LinearLayout btn_Study;
     private LinearLayout btn_Family;
@@ -295,6 +294,14 @@ public class Practice_Vocabulary_Activity extends AppCompatActivity {
 
         mData.child("Question").setValue(arrayQuestion);*/
 
+        closeTheme.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentCloseThemeLearn = new Intent(Practice_Vocabulary_Activity.this,HomeActivity.class);
+                startActivity(intentCloseThemeLearn);
+            }
+        });
+
         // Animal
         btn_Animal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -376,5 +383,6 @@ public class Practice_Vocabulary_Activity extends AppCompatActivity {
         btn_Object = (LinearLayout) findViewById(R.id.btn_Object);
         btn_Country = (LinearLayout) findViewById(R.id.btn_Country);
         btn_Transport = (LinearLayout) findViewById(R.id.btn_Transport);
+        closeTheme = (ImageView) findViewById(R.id.closeTheme);
     }
 }

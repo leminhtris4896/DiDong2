@@ -60,6 +60,7 @@ public class TopActivity extends AppCompatActivity {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 mdUsers mdUsers = dataSnapshot.getValue(com.example.trile.egame.Models.mdUsers.class);
                 arrTop.add(new mdUsers(mdUsers.getMail(),mdUsers.getPass(),mdUsers.getName(),mdUsers.getPoint(),mdUsers.getImg()));
+                sapXepGiaCaoDenThap(arrTop);
                 adapterTop.notifyDataSetChanged();
             }
 
@@ -83,6 +84,25 @@ public class TopActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private ArrayList<mdUsers> sapXepGiaCaoDenThap(ArrayList<mdUsers> arrayDanhSachUser) {
+        int i, j;
+        for (i = 0; i < arrayDanhSachUser.size() - 1; i++) {
+            int Min = i;
+            for (j = i + 1; j < arrayDanhSachUser.size(); j++) {
+                if (arrayDanhSachUser.get(j).getPoint() > arrayDanhSachUser.get(Min).getPoint()) {
+                    Min = j;
+                }
+            }
+            if (Min != i) {
+                // Trao doi cac so
+                mdUsers ojectRam = arrayDanhSachUser.get(i);
+                arrayDanhSachUser.set(i, arrayDanhSachUser.get(Min));
+                arrayDanhSachUser.set(Min, ojectRam);
+            }
+        }
+        return arrayDanhSachUser;
     }
 
     private void array() {

@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.trile.egame.MenuHome.HomeActivity;
 import com.example.trile.egame.MenuHome.PLAY;
 import com.example.trile.egame.Models.mdQuestion;
 import com.google.firebase.database.ChildEventListener;
@@ -30,6 +31,7 @@ public class PlayMenuActivity extends AppCompatActivity implements Serializable 
     private ArrayList<mdQuestion> questions;
     private ArrayList<mdQuestion> arrayListQuetionRandom;
     private Parcelable Parcels;
+    private ImageView imgCloseThemePlay;
 
 
     @Override
@@ -42,6 +44,14 @@ public class PlayMenuActivity extends AppCompatActivity implements Serializable 
 
         mData = FirebaseDatabase.getInstance().getReference();
         init();
+        imgCloseThemePlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentClosePlay = new Intent(PlayMenuActivity.this, HomeActivity.class);
+                startActivity(intentClosePlay);
+            }
+        });
+
         // PLAY KIM
         luuDem.dem = 0;
         imgPlayKim.setOnClickListener(new View.OnClickListener() {
@@ -281,6 +291,7 @@ public class PlayMenuActivity extends AppCompatActivity implements Serializable 
         imgPlayThuy = (ImageView) findViewById(R.id.playThuy);
         imgPlayHoa = (ImageView) findViewById(R.id.playHoa);
         imgPlayTho = (ImageView) findViewById(R.id.playTho);
+        imgCloseThemePlay = (ImageView) findViewById(R.id.closeThemePlay);
     }
 
     public boolean ktTrung(ArrayList<mdQuestion> strings, String chuoi) {

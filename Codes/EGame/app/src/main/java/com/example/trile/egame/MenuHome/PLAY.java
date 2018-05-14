@@ -53,6 +53,8 @@ public class PLAY extends AppCompatActivity {
     FirebaseAuth mAuth;
 
     MediaPlayer mediaPlayer;
+    MediaPlayer mediaWin;
+    MediaPlayer mediaGameOver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,17 +68,24 @@ public class PLAY extends AppCompatActivity {
 
         initView();
 
+
+
         if (luuDem.kim == true) {
             imgTocTop.setImageResource(R.mipmap.boss1);
         }else if (luuDem.moc == true) {
             imgTocTop.setImageResource(R.mipmap.boss2);
-        }else if (luuDem.moc == true) {
+        }else if (luuDem.thuy == true) {
             imgTocTop.setImageResource(R.mipmap.boss3);
-        }else if (luuDem.moc == true) {
+        }else if (luuDem.hoa == true) {
             imgTocTop.setImageResource(R.mipmap.boss4);
         }else {
             imgTocTop.setImageResource(R.mipmap.boss5);
         }
+
+        mediaPlayer = MediaPlayer.create(PLAY.this,R.raw.mp3back);
+        mediaWin = MediaPlayer.create(PLAY.this,R.raw.mp3winner);
+        mediaGameOver = MediaPlayer.create(PLAY.this,R.raw.mp3gameover);
+
         questionStar();
     }
 
@@ -98,8 +107,6 @@ public class PLAY extends AppCompatActivity {
                 android.support.v4.app.FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction1.replace(R.id.frame_question, fragment_question, "Fragment");
                 fragmentTransaction1.commit();
-
-                mediaPlayer = MediaPlayer.create(PLAY.this,R.raw.mp3back);
                 mediaPlayer.start();
 
             }
@@ -114,19 +121,6 @@ public class PLAY extends AppCompatActivity {
                 // SET number question after when click button accept , + 1
                 numberQuestion.setText(luuDem.dem + 1 + "");
                 // Music fire
-                MediaPlayer mediaPlayer = new MediaPlayer();
-                try {
-                    mediaPlayer.setDataSource(String.valueOf(R.raw.mp3fire));
-                    mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                        @Override
-                        public void onPrepared(MediaPlayer mp) {
-                            mp.start();
-                        }
-                    });
-                    mediaPlayer.prepare();
-                }catch (Exception e) {
-                    e.printStackTrace();
-                }
 
                 if (luuDem.dem < 9) {
                     luuDem.dem = luuDem.dem + 1;
@@ -144,13 +138,18 @@ public class PLAY extends AppCompatActivity {
                     //
                     if (luuDem.Diem > 5) {
 
-                        mediaPlayer.stop(); // stop music
+
                         luuDem.win = true;
                         final Dialog dialog = new Dialog(PLAY.this);
                         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                        dialog.setCanceledOnTouchOutside(true);
+                        dialog.setCanceledOnTouchOutside(false);
                         dialog.setContentView(R.layout.dialog_win);
+                        //
+                        mediaPlayer.stop();
+                        mediaWin.start();
                         dialog.show();
+
+                        //
                         // CALL ITEM FROM DIALOG
                         TextView tvAnswerTrue = (TextView) dialog.findViewById(R.id.answerTRUE);
                         TextView tvAnswerFalse = (TextView) dialog.findViewById(R.id.answerFALSE);
@@ -198,18 +197,30 @@ public class PLAY extends AppCompatActivity {
                                 dialog.dismiss();
                                 Intent intentCancel = new Intent(PLAY.this, HomeActivity.class);
                                 startActivity(intentCancel);
+                                mediaWin.stop();
+                                luuDem.kim = false;
+                                luuDem.moc = false;
+                                luuDem.thuy = false;
+                                luuDem.hoa = false;
+                                luuDem.tho = false;
                             }
                         });
 
                         btnNextGame.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
+                                mediaWin.stop();
                                 luuDem.arrayListReply.clear();
                                 luuDem.Diem = 0;
                                 luuDem.dem = 0;
                                 luuDem.win = false;
                                 Intent intent = new Intent(PLAY.this, PlayMenuActivity.class);
                                 startActivity(intent);
+                                luuDem.kim = false;
+                                luuDem.moc = false;
+                                luuDem.thuy = false;
+                                luuDem.hoa = false;
+                                luuDem.tho = false;
                             }
                         });
 
@@ -227,9 +238,10 @@ public class PLAY extends AppCompatActivity {
 
     private void GAMEOVER(){
         mediaPlayer.stop();
+        mediaGameOver.start();
         final Dialog dialogGameOver = new Dialog(PLAY.this);
         dialogGameOver.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialogGameOver.setCanceledOnTouchOutside(true);
+        dialogGameOver.setCanceledOnTouchOutside(false);
         dialogGameOver.setContentView(R.layout.dialog_gameover);
         dialogGameOver.show();
 
@@ -244,6 +256,12 @@ public class PLAY extends AppCompatActivity {
                 luuDem.win = false;
                 Intent intent = new Intent(PLAY.this, PlayMenuActivity.class);
                 startActivity(intent);
+                mediaGameOver.stop();
+                luuDem.kim = false;
+                luuDem.moc = false;
+                luuDem.thuy = false;
+                luuDem.hoa = false;
+                luuDem.tho = false;
             }
         });
         btnLearn.setOnClickListener(new View.OnClickListener() {
@@ -251,6 +269,12 @@ public class PLAY extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intentLearn = new Intent(PLAY.this, Practice_Vocabulary_Activity.class);
                 startActivity(intentLearn);
+                mediaGameOver.stop();
+                luuDem.kim = false;
+                luuDem.moc = false;
+                luuDem.thuy = false;
+                luuDem.hoa = false;
+                luuDem.tho = false;
             }
         });
     }
@@ -259,6 +283,8 @@ public class PLAY extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         mediaPlayer.stop();
+        mediaWin.stop();
+        mediaGameOver.stop();
     }
 
     private void DisplayInforUser() {
