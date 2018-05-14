@@ -52,6 +52,11 @@ public class LoginActivity extends AppCompatActivity {
         mProgress.setTitle("Đang kết nối");
         mProgress.setMessage("Vui lòng chờ");
 
+        if (mAuth.getCurrentUser() != null) {
+            Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+            startActivity(intent);
+        }
+
         mProgress.dismiss();
 
         tvREGISTER.setOnClickListener(new View.OnClickListener() {

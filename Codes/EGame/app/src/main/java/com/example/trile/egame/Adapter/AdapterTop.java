@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.trile.egame.Models.mdTop;
+import com.example.trile.egame.Models.mdUsers;
 import com.example.trile.egame.R;
 import com.squareup.picasso.Picasso;
 
@@ -20,10 +20,10 @@ import java.util.ArrayList;
 
 public class AdapterTop extends RecyclerView.Adapter<AdapterTop.ViewHolder> {
 
-    ArrayList<mdTop> arrTop;
+    ArrayList<mdUsers> arrTop;
     Context context;
 
-    public AdapterTop(ArrayList<mdTop> arrTop, Context context) {
+    public AdapterTop(ArrayList<mdUsers> arrTop, Context context) {
         this.arrTop = arrTop;
         this.context = context;
     }
@@ -37,9 +37,9 @@ public class AdapterTop extends RecyclerView.Adapter<AdapterTop.ViewHolder> {
 
     @Override
     public void onBindViewHolder(AdapterTop.ViewHolder holder, int position) {
-        Picasso.with(context).load(arrTop.get(position).getImgUser()).into(holder.imgUser);
-        holder.tvNameUser.setText(arrTop.get(position).getNameUser());
-        holder.tvCoreUser.setText(arrTop.get(position).getCoreUser());
+        Picasso.with(context).load(arrTop.get(position).getImg()).into(holder.imgUser);
+        holder.tvNameUser.setText(arrTop.get(position).getName());
+        holder.tvCoreUser.setText(arrTop.get(position).getPoint() + "");
     }
 
     @Override

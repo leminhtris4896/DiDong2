@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/EGame.iml" filepath="$PROJECT_DIR$/EGame.iml" />
-      <module fileurl="file://C:\Users\TRILE\AndroidStudioProjects\GitHub\DiDong2\Codes\EGame\EGame.iml" filepath="C:\Users\TRILE\AndroidStudioProjects\GitHub\DiDong2\Codes\EGame\EGame.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\TRILE\AndroidStudioProjects\GitHub\DiDong2\Codes\EGame\app\app.iml" filepath="C:\Users\TRILE\AndroidStudioProjects\GitHub\DiDong2\Codes\EGame\app\app.iml" />
     </modules>
   </component>
 </project>

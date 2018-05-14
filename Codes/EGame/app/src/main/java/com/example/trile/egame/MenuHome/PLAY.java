@@ -46,9 +46,13 @@ public class PLAY extends AppCompatActivity {
     private TextView tvNameUserPlay;
     private TextView tvPointUserPlay;
     private TextView numberQuestion;
+    private ImageView imgTocTop;
     //
     DatabaseReference mData;
+    private DatabaseReference mData2;
     FirebaseAuth mAuth;
+
+    MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,9 +60,23 @@ public class PLAY extends AppCompatActivity {
         setContentView(R.layout.play_game);
         // Firebase
         mData = FirebaseDatabase.getInstance().getReference();
+        mData2 = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
         //
+
         initView();
+
+        if (luuDem.kim == true) {
+            imgTocTop.setImageResource(R.mipmap.boss1);
+        }else if (luuDem.moc == true) {
+            imgTocTop.setImageResource(R.mipmap.boss2);
+        }else if (luuDem.moc == true) {
+            imgTocTop.setImageResource(R.mipmap.boss3);
+        }else if (luuDem.moc == true) {
+            imgTocTop.setImageResource(R.mipmap.boss4);
+        }else {
+            imgTocTop.setImageResource(R.mipmap.boss5);
+        }
         questionStar();
     }
 
@@ -80,6 +98,10 @@ public class PLAY extends AppCompatActivity {
                 android.support.v4.app.FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction1.replace(R.id.frame_question, fragment_question, "Fragment");
                 fragmentTransaction1.commit();
+
+                mediaPlayer = MediaPlayer.create(PLAY.this,R.raw.mp3back);
+                mediaPlayer.start();
+
             }
         });
 
@@ -122,6 +144,8 @@ public class PLAY extends AppCompatActivity {
                     //
                     if (luuDem.Diem > 5) {
 
+                        mediaPlayer.stop(); // stop music
+                        luuDem.win = true;
                         final Dialog dialog = new Dialog(PLAY.this);
                         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                         dialog.setCanceledOnTouchOutside(true);
@@ -180,6 +204,10 @@ public class PLAY extends AppCompatActivity {
                         btnNextGame.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
+                                luuDem.arrayListReply.clear();
+                                luuDem.Diem = 0;
+                                luuDem.dem = 0;
+                                luuDem.win = false;
                                 Intent intent = new Intent(PLAY.this, PlayMenuActivity.class);
                                 startActivity(intent);
                             }
@@ -198,6 +226,7 @@ public class PLAY extends AppCompatActivity {
     }
 
     private void GAMEOVER(){
+        mediaPlayer.stop();
         final Dialog dialogGameOver = new Dialog(PLAY.this);
         dialogGameOver.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialogGameOver.setCanceledOnTouchOutside(true);
@@ -209,6 +238,10 @@ public class PLAY extends AppCompatActivity {
         btnPlayNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                luuDem.arrayListReply.clear();
+                luuDem.Diem = 0;
+                luuDem.dem = 0;
+                luuDem.win = false;
                 Intent intent = new Intent(PLAY.this, PlayMenuActivity.class);
                 startActivity(intent);
             }
@@ -220,6 +253,12 @@ public class PLAY extends AppCompatActivity {
                 startActivity(intentLearn);
             }
         });
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mediaPlayer.stop();
     }
 
     private void DisplayInforUser() {
@@ -265,6 +304,7 @@ public class PLAY extends AppCompatActivity {
         tvNameUserPlay = (TextView) findViewById(R.id.nameUserPlay);
         tvPointUserPlay = (TextView) findViewById(R.id.pointUserPlay);
         numberQuestion = (TextView) findViewById(R.id.numberQuestion);
+        imgTocTop = (ImageView) findViewById(R.id.imgTocTop);
     }
 
     private void starGame() {
@@ -278,7 +318,9 @@ public class PLAY extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                GAMEOVER();
+                if (luuDem.win = false) {
+                    GAMEOVER();
+                }
             }
         }.start();
         mTimeRunning = true;

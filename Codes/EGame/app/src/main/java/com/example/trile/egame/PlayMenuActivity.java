@@ -1,12 +1,11 @@
 package com.example.trile.egame;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.example.trile.egame.MenuHome.PLAY;
 import com.example.trile.egame.Models.mdQuestion;
@@ -48,6 +47,7 @@ public class PlayMenuActivity extends AppCompatActivity implements Serializable 
         imgPlayKim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                luuDem.kim = true;
                 mData.child("Question").addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -93,6 +93,7 @@ public class PlayMenuActivity extends AppCompatActivity implements Serializable 
         imgPlayMoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                luuDem.moc = true;
                 mData.child("Question").addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -138,6 +139,7 @@ public class PlayMenuActivity extends AppCompatActivity implements Serializable 
         imgPlayThuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                luuDem.thuy = true;
                 mData.child("Question").addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -183,6 +185,7 @@ public class PlayMenuActivity extends AppCompatActivity implements Serializable 
         imgPlayHoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                luuDem.hoa = true;
                 mData.child("Question").addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -228,6 +231,7 @@ public class PlayMenuActivity extends AppCompatActivity implements Serializable 
         imgPlayTho.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                luuDem.tho = true;
                 mData.child("Question").addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(DataSnapshot dataSnapshot, String s) {

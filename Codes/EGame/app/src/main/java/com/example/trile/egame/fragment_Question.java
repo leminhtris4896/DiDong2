@@ -2,8 +2,6 @@ package com.example.trile.egame;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcel;
-import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 
 import com.example.trile.egame.Models.mdQuestion;
+import com.example.trile.egame.Theme.MyRadioGroup;
 import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
@@ -24,7 +23,6 @@ public class fragment_Question extends android.support.v4.app.Fragment implement
     Bundle bundle;
     private ImageView img_question;
     private RadioButton rdbA, rdbB, rdbC, rdbD;
-    private ArrayList<String> arrayListReply;
 
     public fragment_Question() {
     }
@@ -41,6 +39,8 @@ public class fragment_Question extends android.support.v4.app.Fragment implement
         rdbC = view.findViewById(R.id.radC);
         rdbD = view.findViewById(R.id.radD);
 
+        MyRadioGroup myRadioGroup = new MyRadioGroup(rdbA,rdbB,rdbC,rdbD);
+
 
         ArrayList<mdQuestion> mdQuestions = getActivity().getIntent().getParcelableArrayListExtra("random_question");
 
@@ -53,25 +53,53 @@ public class fragment_Question extends android.support.v4.app.Fragment implement
         rdbA.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                luuDem.arrayListReply.add(rdbA.getText().toString());
+                if (luuDem.arrayListReply.size() == 0)
+                {
+                    luuDem.arrayListReply.add(rdbA.getText().toString());
+                }
+                else if(ktTrung(luuDem.arrayListReply,rdbA.getText().toString()) == false)
+                {
+                    luuDem.arrayListReply.add(rdbA.getText().toString());
+                }
             }
         });
         rdbB.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                luuDem.arrayListReply.add(rdbB.getText().toString());
+                if (luuDem.arrayListReply.size() == 0)
+                {
+                    luuDem.arrayListReply.add(rdbB.getText().toString());
+                }
+                else if(ktTrung(luuDem.arrayListReply,rdbB.getText().toString()) == false)
+                {
+                    luuDem.arrayListReply.add(rdbB.getText().toString());
+                }
             }
         });
         rdbC.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                luuDem.arrayListReply.add(rdbC.getText().toString());
+                if (luuDem.arrayListReply.size() == 0)
+                {
+                    luuDem.arrayListReply.add(rdbC.getText().toString());
+                }
+                else if(ktTrung(luuDem.arrayListReply,rdbC.getText().toString()) == false)
+                {
+                    luuDem.arrayListReply.add(rdbC.getText().toString());
+                }
             }
         });
         rdbD.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                luuDem.arrayListReply.add(rdbD.getText().toString());
+                if (luuDem.arrayListReply.size() == 0)
+                {
+                    luuDem.arrayListReply.add(rdbD.getText().toString());
+                }
+                else if(ktTrung(luuDem.arrayListReply,rdbD.getText().toString()) == false)
+                {
+                    luuDem.arrayListReply.add(rdbD.getText().toString());
+                }
             }
         });
 
@@ -80,5 +108,15 @@ public class fragment_Question extends android.support.v4.app.Fragment implement
 
         }
         return view;
+    }
+
+    public boolean ktTrung(ArrayList<String> strings, String chuoi) {
+        boolean kt = false;
+        for (int i = 0; i < strings.size(); i++) {
+            if (strings.get(i).equalsIgnoreCase(chuoi)) {
+                kt = true;
+            }
+        }
+        return kt;
     }
 }

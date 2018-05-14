@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.trile.egame.Adapter.AdapterTop;
-import com.example.trile.egame.Models.mdTop;
+import com.example.trile.egame.Models.mdUsers;
 import com.example.trile.egame.R;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -24,7 +24,7 @@ public class TopActivity extends AppCompatActivity {
 
     private ImageView imgCLOSETOP;
     // Array of TopLocation
-    private ArrayList<mdTop> arrTop;
+    private ArrayList<mdUsers> arrTop;
     private AdapterTop adapterTop;
     private RecyclerView recyclerTop;
     private DatabaseReference mData;
@@ -55,11 +55,11 @@ public class TopActivity extends AppCompatActivity {
         recyclerTop.setAdapter(adapterTop);
         recyclerTop.addOnItemTouchListener(new RecyclerView.SimpleOnItemTouchListener());
 
-        mData.child("Charts").addChildEventListener(new ChildEventListener() {
+        mData.child("Users").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                mdTop mdTop = dataSnapshot.getValue(com.example.trile.egame.Models.mdTop.class);
-                arrTop.add(new mdTop(mdTop.getImgUser(),mdTop.getNameUser(),mdTop.getCoreUser()));
+                mdUsers mdUsers = dataSnapshot.getValue(com.example.trile.egame.Models.mdUsers.class);
+                arrTop.add(new mdUsers(mdUsers.getMail(),mdUsers.getPass(),mdUsers.getName(),mdUsers.getPoint(),mdUsers.getImg()));
                 adapterTop.notifyDataSetChanged();
             }
 
@@ -86,7 +86,7 @@ public class TopActivity extends AppCompatActivity {
     }
 
     private void array() {
-        arrTop = new ArrayList<mdTop>();
+        arrTop = new ArrayList<mdUsers>();
 
         /*arrTop.add(new mdTop(R.mipmap.archibald,"Nguyễn Phúc Toàn","789"));
         arrTop.add(new mdTop(R.mipmap.layla,"Lay La","789"));

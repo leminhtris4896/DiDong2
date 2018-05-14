@@ -49,73 +49,51 @@
 
             <RadioGroup
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="match_parent">
 
-                <LinearLayout
+
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:gravity="center">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:gravity="left">
-                            <RadioButton
-                                android:id="@+id/radA"
-                                style="@style/checkbox"
-                                android:text="Table" />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:gravity="left">
-                            <RadioButton
-                                android:id="@+id/radB"
-                                style="@style/checkbox"
-                                android:text="Banner" />
-                        </LinearLayout>
+                    <RadioButton
+                        android:id="@+id/radA"
+                        style="@style/checkbox"
+                        android:layout_marginRight="40dp"
+                        android:layout_marginBottom="40dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true" />
 
-                    </LinearLayout>
+                    <RadioButton
+                        android:id="@+id/radB"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@id/radA"
+                        android:layout_toRightOf="@id/radA" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/radC"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/radA"
+                        android:layout_below="@id/radA" />
 
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:gravity="left">
-                            <RadioButton
-                                android:id="@+id/radC"
-                                style="@style/checkbox"
-                                android:text="Teacher" />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:gravity="left">
-                            <RadioButton
-                                android:id="@+id/radD"
-                                style="@style/checkbox"
-                                android:text="Classroom" />
-                        </LinearLayout>
+                    <RadioButton
+                        android:id="@+id/radD"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@id/radC"
+                        android:layout_alignLeft="@id/radB"
+                        android:layout_toRightOf="@id/radC" />
+                </RelativeLayout>
 
-                    </LinearLayout>
-
-                </LinearLayout>
 
             </RadioGroup>
 
